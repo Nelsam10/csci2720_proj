@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+    <script src="user.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+</head>
+<body>
+    <div id="content" class="m-2">
+        <nav class="mb-2 navbar navbar-expand-md bg-dark">
+            <div class="navbar-nav nav-fill justify-content-around w-100">
+                <a id="home" class="nav-link text-danger disabled" href="">Home</a>
+                <div class="dropdown">
+                    <a id="locDropdown" class="nav-link text-success dropdown-toggle" data-toggle="dropdown" href="">Location</a>
+                    <div id="locDropdownMenu" class="dropdown-menu">
+                        <a id="listLoc" class="dropdown-item text-success" href="">List Locations in Table</a>
+                        <a id="searchLoc" class="dropdown-item text-success" href="">Search Locations</a>
+                    </div>
+                </div>
+                <a id="seeFavLoc" class="nav-link text-success" href="">See Favourite Locations</a>
+                <a id="seeTop5Loc" class="nav-link text-success" href="">See Top 5 Locations</a>
+                <div class="dropdown">
+                    <a id="userName" class="nav-link text-success dropdown-toggle" data-toggle="dropdown" href=""></a>
+                    <div id="userDropdownMenu" class="dropdown-menu">
+                        <a id="logout" class="nav-link text-success" href="">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id="userContent">
+            <h1 style="text-align: center; background-color: #AAAAAA">Welcome to the Home Page! </h1>
+            <h2 style="text-align: left; background-color: #DDDDDD">All Location Map: </h2>
+
+            <div id="googleMap" style="width:80%;height:80%;"></div>
+            <!--GOOGLE MAP API KEY: AIzaSyAYV7JyoKA7lX47pEtK-w0jUSHuw-AtOqE free for 12 Month-->
+            <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYV7JyoKA7lX47pEtK-w0jUSHuw-AtOqE&callback=initMap"></script>
+            <h2 style="text-align: left; background-color: #DDDDDD">Seperate Location Map: </h2>
+            <div class="row">
+                <div class="col">
+                    <!-- Left Column in the Row-->
+                    <div id="singleMap" style="width:100%;height:100%;"></div>
+                    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYV7JyoKA7lX47pEtK-w0jUSHuw-AtOqE&amp;callback=seperateMap"></script>
+
+                    <h6>Seperate View of Location</h6>
+
+                    <div class="custom-control-inline">
+                        <input  style="width: 300px" type="text"  placeholder="Location Id" aria-label="Location Id" name="sepValue" id="sepValue">
+                        <button type="submit" class="btn btn-success" id="sepBtn">Search</button>
+                    </div>
+
+                    <div id="userlocation"></div>
+                </div>
+                <div class="col">
+                    <!-- Right Column in the Row-->
+                    <h1 id="topic"></h1>
+                    <div id="measureDistance"></div>
+                    <div class="row">
+                        <div class="col">
+                            <div id="favouriteContent"></div>
+                        </div>
+                        <div class="col">
+                            <div id="favmsg"></div>
+                        </div>
+                    </div>
+                    <ul id="comments" class="list-unstyled"></ul>
+                    <div id="commentBox"></div>
+                </div>
+                </div>
+
+        </div>
+    </div>
+</body>
+</html>
